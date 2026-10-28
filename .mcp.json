@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "wordpress": {
+      "command": "python3",
+      "args": ["tools/wordpress/mcp_server.py"]
+    }
+  }
+}

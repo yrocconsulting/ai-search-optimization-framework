@@ -1,0 +1,21 @@
+{
+  "sites": {
+    "acme": {
+      "name": "Acme Plumbing",
+      "url": "https://acmeplumbing.com",
+      "username": "claude",
+      "password_env": "WP_ACME_APP_PASSWORD",
+      "seo_plugin": "auto",
+      "notes": "Local plumber, Austin TX. Friendly, plain-English voice. Never edit /careers/."
+    },
+    "brightsmile": {
+      "name": "Bright Smile Dental",
+      "url": "https://brightsmiledental.example",
+      "username": "claude",
+      "password_env": "WP_BRIGHTSMILE_APP_PASSWORD",
+      "seo_plugin": "rankmath",
+      "rest_route": false,
+      "notes": "All changes go in as drafts for the office manager to approve."
+    }
+  }
+}

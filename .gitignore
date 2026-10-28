@@ -1,0 +1,7 @@
+# WordPress connector: client credentials and output never belong in git
+tools/wordpress/sites.json
+tools/wordpress/.env
+reports/
+work/
+dist/
+__pycache__/

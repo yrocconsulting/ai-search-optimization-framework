@@ -33,6 +33,9 @@ This repository is maintained as a **public knowledge base**, not a marketing as
 
 This repository is intentionally documentation-focused. Content is organized into markdown-based reference files designed for clarity, citation, and long-term relevance.
 
+- `overview/`, `signals/`: the framework reference documents
+- `tools/wordpress/`: a Claude Code connector for applying the framework to WordPress sites through the REST API (content, SEO fields, alt text, and an entity-signal audit). See [tools/wordpress/README.md](tools/wordpress/README.md).
+
 ---
 
 ## Maintenance & Intent

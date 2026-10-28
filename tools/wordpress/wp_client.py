@@ -127,13 +127,22 @@ def sites_file_path():
 
 
 def load_sites(path=None):
+    """Load the site registry from a file, or from the WP_SITES_JSON environment
+    variable (useful in cloud sessions, where git-ignored files don't persist)."""
     load_env_file()
     path = Path(path) if path else sites_file_path()
-    if not path.exists():
+    if path.exists():
+        raw = json.loads(path.read_text())
+    elif os.environ.get("WP_SITES_JSON"):
+        try:
+            raw = json.loads(os.environ["WP_SITES_JSON"])
+        except ValueError as exc:
+            raise WPError(f"WP_SITES_JSON is not valid JSON: {exc}") from None
+    else:
         raise WPError(
-            f"No site registry at {path}. Copy sites.example.json to sites.json and add your sites."
+            f"No site registry at {path} and WP_SITES_JSON is not set. "
+            "Copy sites.example.json to sites.json and add your sites."
         )
-    raw = json.loads(path.read_text())
     sites = {}
     for key, cfg in raw.get("sites", {}).items():
         missing = [f for f in ("url", "username", "password_env") if not cfg.get(f)]

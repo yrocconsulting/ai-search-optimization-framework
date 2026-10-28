@@ -216,6 +216,16 @@ class ConnectorTest(unittest.TestCase):
         self.assertEqual(result["seo_bridge"]["version"], "1.0.0")
         self.assertEqual(result["user"]["roles"], ["editor"])
 
+    def test_sites_from_env_when_no_file(self):
+        from wp_client import load_sites
+        os.environ["WP_SITES_JSON"] = json.dumps({"sites": {"envsite": {
+            "url": "https://example.com/", "username": "u", "password_env": "X"}}})
+        try:
+            sites = load_sites(Path(self.tmp.name) / "missing.json")
+        finally:
+            del os.environ["WP_SITES_JSON"]
+        self.assertEqual(sites["envsite"].url, "https://example.com")
+
     def test_bad_password_gives_hint(self):
         with self.assertRaises(WPError) as ctx:
             WPClient(get_site("wrongpw")).check()

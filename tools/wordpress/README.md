@@ -57,9 +57,12 @@ Add one entry per client to `sites.json`, and put each application password in
 | `seo_plugin` | `auto` (detect), `yoast`, `rankmath`, `seopress`, or `none` |
 | `rest_route` | `true` if the site uses "Plain" permalinks (`/wp-json/` 404s) |
 
-**In a Claude Code cloud session**, don't commit these files. Set the
-passwords as environment secrets/variables on the cloud environment, and make
-sure its network policy allows your clients' domains.
+**In a Claude Code cloud session**, don't commit these files (git-ignored files
+don't survive between sessions anyway). Instead, in the cloud environment's
+settings, set each password as a secret/environment variable, and set
+`WP_SITES_JSON` to the full contents of your `sites.json`. That's used whenever
+no `sites.json` file exists. Also make sure the environment's network policy
+allows your clients' domains.
 
 Verify everything:
 

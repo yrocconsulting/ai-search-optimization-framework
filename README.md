@@ -47,3 +47,6 @@ Updates reflect changes in AI behavior, search interfaces, and authority modelin
 Yroc Consulting  
 AI Search Optimization & Entity Authority  
 https://yrocconsulting.com
+
+Authored by **Cory Long**, founder of [AI Authority Engine](https://aiauthorityengine.org), the AI SEO certification and training program built on this framework.  
+https://aiauthorityengine.org/cory-long/
